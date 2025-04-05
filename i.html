@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>අෂාන් රත්නායක​</title>
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: #0066cc;
+        }
+
+        a:hover {
+            color: #004080;
+        }
+
+        /* Layout */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background-color: #ffffff;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .site-name {
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+            text-align: center;
+            flex-grow: 1;
+        }
+
+        .header-left, .header-right {
+            flex: 1;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+        }
+
+        nav ul li {
+            margin-right: 20px;
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: flex-end;
+            gap: 15px;
+        }
+
+        .social-icons i {
+            font-size: 18px;
+            color: #555;
+        }
+
+        .social-icons i:hover {
+            color: #0066cc;
+        }
+
+        /* Main Content Area */
+        .main-content {
+            display: flex;
+            padding: 30px 0;
+        }
+
+        .content {
+            flex: 3;
+            margin-right: 30px;
+        }
+
+        .sidebar {
+            flex: 1;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        /* Home Page */
+        .home-content {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+
+        .home-content h1 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        /* Gallery Page */
+        .gallery-content {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .gallery-content h1 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            grid-gap: 20px;
+            margin-top: 20px;
+        }
+
+        .gallery-item {
+            overflow: hidden;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* About Section */
+        .about-section h2 {
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .about-section p {
+            margin-bottom: 15px;
+        }
+
+        /* Contact Form */
+        .contact-form {
+            margin-top: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+        .form-group textarea {
+            min-height: 150px;
+        }
+
+        button {
+            background-color: #0066cc;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #004080;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 40px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .header-left, .header-right {
+                width: 100%;
+                display: flex;
+                justify-content: center;
+            }
+
+            .site-name {
+                order: -1;
+            }
+
+            .main-content {
+                flex-direction: column;
+            }
+
+            .content {
+                margin-right: 0;
+                margin-bottom: 30px;
+            }
+
+            .social-icons {
+                justify-content: center;
+            }
+        }
+    </style>
+    <!-- Font Awesome for social icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" href="Screenshot 2025-04-05 213928.png" type="image/png">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="header-left">
+                    <nav>
+                        <ul>
+                            <li><a href="#gallery">Gallery</a></li>
+                            <li><a href="#contact">Contact</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="site-name">අෂාන් රත්නායක​​</div>
+                <div class="header-right">
+                    <div class="social-icons">
+                        <a href="#" target="_blank"><i class="fab fa-facebook"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container main-content">
+        <div class="content">
+            <section id="home" class="home-content">
+                <h1>Home Page</h1>
+                <p>Welcome to website!.</p>
+                <p>දක්ෂත්වයෙන්, කැපවීමෙන්, සහ ආදරයෙන් පිරුණු ඔහු, 6 ශ්‍රේණියෙන් පටන් 11 ශ්‍රේණිය දක්වා සහ උසස් පෙළ (A/L) ඉතිහාස පන්තිය දක්වා සිසුන්ට දැනුම බෙදාදෙයි.</p>
+                <p>ඔහුගේ ඉගැන්වීම පමණක් නොව, එය සිසුන්ගේ මනසට පෙනෙන්න, සජීවීව, සිතුම් සිතුවිලි වලින් පිරුණු ආකාරයකින් සිදුවෙයි. සර් පන්තියේදී භාවිතා කරන කතා, පින්තූර, වීඩියෝ සහ කාලරේඛා සිසුන්ට ඉතිහාසය ආදරයෙන් කියවන්න උනන්දුවක් ලබාදෙනවා.</p>
+                <p> :- 6 ශ්‍රේණියේ සිට සිසුන්ගේ මූලික ඉතිහාස දැනුම බිහි කිරීම.</p>
+                <p> :- 11 ශ්‍රේණිය සඳහා සාමාන්‍ය පෙළ විභාගය සඳහා හොඳම ප්‍රසාදයක් සැලසීම. </p>
+                <p> :- උසස් පෙළ සිසුන්ට විශේෂ පුහුණු වැඩසටහන්, විශ්ලේෂණාත්මක අධ්‍යයන ක්‍රම, හා පර්යේෂණ හැකියාවන් සංවර්ධනය කිරීම</p>
+            </section>
+
+            <section id="gallery" class="gallery-content">
+                <h1>Gallery Page</h1>
+                <p>Welcome to the gallery section. Here you can display your photos, projects, or portfolio items.</p>
+                
+                <div class="gallery-grid">
+                    <div class="gallery-item">
+                        <img src="Screenshot 2025-04-05 213523.png" alt="Gallery Image 1">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="Screenshot 2025-04-05 214344.png" alt="Gallery Image 2">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="Screenshot 2025-04-05 214055.png" alt="Gallery Image 3">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="Screenshot 2025-04-05 214623.png"Gallery Image 4">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="Screenshot 2025-04-05 214830.png"Gallery Image 5">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="Screenshot 2025-04-05 215146.png" alt="Gallery Image 6">
+                    </div>
+                </div>
+            </section>
+
+            <section id="contact" class="contact-form">
+                <h1>Contact</h1>
+                <p>If you have any questions or inquiries, please fill out the form below:</p>
+                
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" required></textarea>
+                    </div>
+                    <button type="submit">Send Message</button>
+                </form>
+            </section>
+        </div>
+
+        <aside class="sidebar">
+            <div class="about-section">
+                <h2>About</h2>
+                <p>ඉතිහාසය පිලිබදව​ ගැඹුරු සබඳතාවක් ඇති අයෙකු වූයේ අශන් සර්ය.</p>
+                <p>දශක ගණනාවක් තිස්සේ ඉතිහාසය උගන්වමින් සිසුන් හදවත්ට මුණ ගැසී ඔවුන්ගේ ජීවිත ගොඩනගා දීමේ මෙහෙවරකට නියුතු වූ ඔහු, විශිෂ්ට ගුරුවරයකු ලෙස අපගේ මතක වල සදාකාලිකව තියෙන්නේය.</p>
+                <p>රටේ ඉතිහාසය පමණක් නොව, ලෝක ඉතිහාසය, විශේෂයෙන්ද කොරියාවේ සංස්කෘතිය සහ ඉතිහාසය පිළිබඳ ව්‍යාකූලව කියාදෙන සර්, සෑම පාඩමක්ම සිසුන්ට ජීවමාන අත්දැකීම් වගේ හිමිකර දෙයි.</p>
+                <p>ඔහුගේ පදනම්මති ආදරය සහ කැපවීම නිසා, සරසවි බෑවට ගිය බොහෝ දෙනෙක් අද ඔහුට ගෞරවයෙන් යුතුව සලකනවා.</p>
+            </div>
+        </aside>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 My Website. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Navigation smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 100,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Form submission handling
+        const contactForm = document.getElementById('contactForm');
+        if (contactForm) {
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const name = document.getElementById('name').value;
+                const email = document.getElementById('email').value;
+                const message = document.getElementById('message').value;
+                
+                // This would typically send data to a server
+                // For demonstration, we'll just show an alert
+                alert(`Thank you for your message, ${name}! We'll get back to you at ${email} soon.`);
+                
+                // Clear form
+                contactForm.reset();
+            });
+        }
+
+        // Simple image modal for gallery (optional functionality)
+        const galleryItems = document.querySelectorAll('.gallery-item');
+        galleryItems.forEach(item => {
+            item.addEventListener('click', function() {
+                // You could implement a lightbox here if desired
+                console.log('Gallery item clicked');
+            });
+        });
+    </script>
+</body>
+</html>
